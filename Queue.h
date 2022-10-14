@@ -18,5 +18,19 @@ public:
     int getSize() const;
     void clear();
     bool isEmpty() const;
+    class Iterator
+    {
+    private:
+        const QueueArr& queue;
+        const double* current;
+        // data[i] := *(data + i)
+    public:
+        Iterator(const QueueArr& queue);
+        void start();
+        void next();
+        bool finish() const;
+        double getValue() const;
+    };
+
 
 };

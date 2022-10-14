@@ -55,4 +55,24 @@ bool QueueArr::isEmpty() const
 {
     return head == tail;
 }
+QueueArr::Iterator::Iterator(const QueueArr& queue) : queue(queue)
+{
+
+}
+bool QueueArr::Iterator::finish() const
+{
+    return current == queue.data + queue.head + queue.tail;
+}
+void QueueArr::Iterator::next()
+{
+    current = current+1;
+}
+void QueueArr::Iterator::start()
+{
+    current = queue.data + queue.head;
+}
+double QueueArr::Iterator::getValue() const
+{
+    return *current;
+}
 
